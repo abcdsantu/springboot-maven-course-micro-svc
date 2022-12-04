@@ -44,7 +44,7 @@ pipeline {
         }
         
         stage ("Build the docker image") {
-          dockerImage = docker.build("santu458/webapp:2.0")
+          dockerImage = docker.build "santu458/webapp:2.0"
         }
               
         stage ("Push image to dockerhub") {
