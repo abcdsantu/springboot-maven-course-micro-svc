@@ -42,13 +42,13 @@ pipeline {
             }
             
         }
-        def dockerImage  ()
+        
         stage ("Build the docker image") {
           dockerImage = docker.build("santu458/webapp:2.0")
         }
               
         stage ("Push image to dockerhub") {
-            docker.withRegistry('https://registry-1.docker.io/v2/', 'dockerhubID') {
+            withDockerRegistry(credentialsId: 'dockerhubID', url: 'https://registry-1.docker.io/v2/') {
               dockerImage.push()
             }
         }
