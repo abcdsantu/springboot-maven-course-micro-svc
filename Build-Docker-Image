@@ -47,7 +47,7 @@ pipeline {
                 script {
                 sh "docker build ."
                 sh "docker images"
-                sh "docker push -u admin -p admin123 192.168.145.131:8081/santudocker"
+                
                 }
              }
              
