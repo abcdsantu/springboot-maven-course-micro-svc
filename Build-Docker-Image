@@ -1,5 +1,7 @@
 pipeline {
     agent any
+    environment {
+        registry = "http://192.168.145.131:8081/repository/santudocker"
     stages {
         stage ("Git Checkout") {
             steps {
@@ -44,7 +46,7 @@ pipeline {
         stage ("Build the docker image") {
             steps {
                 script {
-                docker build .
+                dockerImage= docker.build registry + ":$BUILD_NUMBER"
                 docker images
                 }
              }
