@@ -48,8 +48,12 @@ pipeline {
         }
               
         stage ("Push image to dockerhub") {
-            withDockerRegistry(credentialsId: 'dockerhubID', url: 'https://registry-1.docker.io/v2/') {
-              dockerImage.push()
+            steps {
+                script {
+                     withDockerRegistry(credentialsId: 'dockerhubID', url: 'https://registry-1.docker.io/v2/') {
+                     sh "docker push docker.io/santu458/webapp:2.0"
+                     }
+                }
             }
         }
         
