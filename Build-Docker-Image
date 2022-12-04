@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        registry = "http://192.168.145.131:8081/repository/santudocker"
+        registry = "http://192.168.145.131:8081/santudocker"
         }
     stages {
         stage ("Git Checkout") {
