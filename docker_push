@@ -46,7 +46,7 @@ pipeline {
         stage ("Build the docker image") {
             steps {
                 script {
-                dockerImage = docker.build("docker.io/santu458/webapp:2.0")
+                dockerImage = docker.build("santu458/webapp:2.0")
                 }
             }
         }
@@ -54,7 +54,7 @@ pipeline {
         stage ("Push image to dockerhub") {
             steps {
                 script {
-                     withDockerRegistry(credentialsId: 'dockerhubID', url: 'https://registry.hub.docker.com/') {
+                     withDockerRegistry(credentialsId: 'dockerhubID', url: 'docker.io') {
                       dockerImage.push()
                      }
                 }
