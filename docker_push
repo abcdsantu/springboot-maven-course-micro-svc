@@ -42,22 +42,17 @@ pipeline {
             }
             
         }
+        def dockerImage
         stage ("Build the docker image") {
-            steps {
-                script {
-                sh "docker build ."
-                sh "docker images"
-                sh "docker tag openjdk:8 docker.io/santu458/webapp:1.0"
-                sh "docker push docker.io/santu458/webapp:1.0"
-                
-                }
-             }
-             
-         }
-        
-                    
-    }
- 
+          dockerImage = docker.build("santu458/webapp:2.0")
+        }
+              
+        stage ("Push image to dockerhub") {
+            docker.withRegistry('https://registry-1.docker.io/v2/', 'dockerhubID') {
+              dockerImage.push()
+            }
+        }                   
+    } 
 }
 def UploadtoNexus() {
      nexusArtifactUploader artifacts: [[artifactId: 'springboot-maven-course-micro-svc', classifier: '', file: 'target/springboot-maven-course-micro-svc-0.0.2-SNAPSHOT.jar', type: 'jar']], credentialsId: 'nexus3', groupId: 'com.cloudtechmasters', nexusUrl: '192.168.145.131:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'SantuDevops-SNAPSHOT', version: '0.0.2-SNAPSHOT'
