@@ -42,7 +42,7 @@ pipeline {
             }
             
         }
-        def dockerImage  {
+        def dockerImage  ()
         stage ("Build the docker image") {
           dockerImage = docker.build("santu458/webapp:2.0")
         }
@@ -52,7 +52,7 @@ pipeline {
               dockerImage.push()
             }
         }
-        }
+        
     } 
 }
 def UploadtoNexus() {
