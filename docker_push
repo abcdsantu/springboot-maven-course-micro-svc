@@ -47,8 +47,8 @@ pipeline {
                 script {
                 sh "docker build ."
                 sh "docker images"
-                sh "docker tag openjdk:8 docker.io/santu458/webapp:"$BUILD_NUMBER""
-                sh "docker push docker.io/santu458/webapp:"$BUILD_NUMBER""
+                sh "docker tag openjdk:8 docker.io/santu458/webapp:1.0"
+                sh "docker push docker.io/santu458/webapp:1.0"
                 
                 }
              }
