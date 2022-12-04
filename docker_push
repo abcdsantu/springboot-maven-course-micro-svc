@@ -42,7 +42,7 @@ pipeline {
             }
             
         }
-        def dockerImage
+        def dockerImage () {
         stage ("Build the docker image") {
           dockerImage = docker.build("santu458/webapp:2.0")
         }
@@ -51,7 +51,8 @@ pipeline {
             docker.withRegistry('https://registry-1.docker.io/v2/', 'dockerhubID') {
               dockerImage.push()
             }
-        }                   
+        }
+        }
     } 
 }
 def UploadtoNexus() {
