@@ -49,7 +49,7 @@ pipeline {
                 script {
                 sh "docker build ."
                 sh "docker images"
-                sh "docker tag openjdk:8 docker.io/santu458/webapp:1.0"
+                sh "docker tag openjdk:8 docker.io/santu458/webapp:2.0"
                 }
             }
         }
@@ -59,7 +59,7 @@ pipeline {
                 script {
                      withDockerRegistry(credentialsId: 'dockerhubID', url: 'https://registry-1.docker.io/v2/') {
                       sh "docker images"
-                      sh "docker push docker.io/santu458/webapp:1.0"
+                      sh "docker push docker.io/santu458/webapp:2.0"
                      }
                 }
             }
