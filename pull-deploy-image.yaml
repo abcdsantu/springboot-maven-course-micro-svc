@@ -1,0 +1,7 @@
+---
+- hosts:  dev-servers
+  tasks:
+    - name: Pull the image from docker hub
+      shell: docker pull $registry:$BUILD_NUMBER"
+    - name: Run the container using the Image
+      shell: docker run --name=santuspringboot-p 8080:8080 --detach $registry:$BUILD_NUMBER"
