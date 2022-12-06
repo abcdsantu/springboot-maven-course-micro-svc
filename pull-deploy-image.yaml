@@ -2,7 +2,7 @@
 - hosts:  UAT-servers
   tasks:
     - name: log into docker hub registry
-      shell: docker login -u santu459 -p dckr_pat_u065r_4Qrq4CojzPVCPZh4LUQ8w
+      shell: docker login -u santu458 -p dckr_pat_u065r_4Qrq4CojzPVCPZh4LUQ8w
     - name: Pull the image from docker hub
       shell: docker pull santu459/webappsantu:14
     - name: Run the container using the Image
