@@ -1,11 +1,10 @@
 ---
 - hosts:  UAT-servers
-  - name: login to DockerHub remote registry using your account
-    docker_login:
+  tasks:
+    - name: login to DockerHub remote registry using your account
+      docker_login:
       username: santu458
       password: dckr_pat_u065r_4Qrq4CojzPVCPZh4LUQ8w
-      
-  tasks:
     - name: Pull the image from docker hub
       shell: docker pull santu459/webappsantu
     - name: Run the container using the Image
