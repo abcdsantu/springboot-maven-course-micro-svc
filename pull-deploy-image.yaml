@@ -6,4 +6,4 @@
     - name: Pull the image from docker hub
       shell: docker pull santu458/webappsantu:14
     - name: Run the container using the Image
-      shell: docker run --name=santuspringboot-p 8080:8080 --detach santu458/webappsantu:14
+      shell: docker run --name=santuspringboot -p 8080:8080 --detach santu458/webappsantu:14
