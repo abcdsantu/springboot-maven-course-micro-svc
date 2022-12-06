@@ -2,6 +2,6 @@
 - hosts:  UAT-servers
   tasks:
     - name: Pull the image from docker hub
-      shell: docker pull santu459/webappsantu:"$Latest_Build_Number4
+      shell: docker pull santu459/webappsantu
     - name: Run the container using the Image
-      shell: docker run --name=santuspringboot-p 8080:8080 --detach santu459/webappsantu:"$Latest_Build_Number4"
+      shell: docker run --name=santuspringboot-p 8080:8080 --detach santu459/webappsantu
