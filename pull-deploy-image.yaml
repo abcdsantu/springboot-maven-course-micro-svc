@@ -1,5 +1,5 @@
 ---
-- hosts:  dev-servers
+- hosts:  UAT-servers
   tasks:
     - name: Pull the image from docker hub
       shell: docker pull $registry:$BUILD_NUMBER"
