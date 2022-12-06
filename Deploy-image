@@ -75,6 +75,11 @@ pipeline {
                 sh "docker rmi $registry:$BUILD_NUMBER" 
            } 
         }
+        stage ("UAT Deploy") {
+            steps {
+                ansiblePlaybook become: true, becomeUser: 'santu', credentialsId: 'ansibleid', disableHostKeyChecking: true, installation: 'ansible2', inventory: 'UAT.inv', playbook: 'pull-deploy-image.yaml'
+            }
+        }
     }
 }
 def UploadtoNexus() {
