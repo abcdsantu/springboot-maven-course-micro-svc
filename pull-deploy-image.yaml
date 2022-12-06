@@ -2,7 +2,7 @@
 - hosts:  UAT-servers
   tasks:
     - name: log into docker hub registry
-      docker_login:
+      community.docker.docker_login:
         email: "santosh.pn459@gmail.com"
         username: "santu458"
         password: "dckr_pat_u065r_4Qrq4CojzPVCPZh4LUQ8w"
