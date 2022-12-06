@@ -4,7 +4,7 @@
     docker_login:
       username: santu458
       password: dckr_pat_u065r_4Qrq4CojzPVCPZh4LUQ8w
-      email: docker@docker.io
+      
   tasks:
     - name: Pull the image from docker hub
       shell: docker pull santu459/webappsantu
