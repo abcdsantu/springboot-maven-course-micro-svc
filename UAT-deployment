@@ -79,7 +79,7 @@ pipeline {
             steps {
                 echo "${env.BUILD_NUMBER}"
                         println "${env.BUILD_NUMBER}"
-                        sh "ansible-playbook  pull-deploy-image.yaml -e Latest_Build_Number4=${env.BUILD_NUMBER}"
+                        ansiblePlaybook credentialsId: 'ansibleid', disableHostKeyChecking: true, extras: 'Latest_Build_Number=${env.BUILD_NUMBER}', installation: 'ansible2', inventory: 'UAT.inv', playbook: 'pull-deploy-image.yaml'
             }
         }
     }
